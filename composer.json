@@ -1,0 +1,38 @@
+{
+  "name": "vragovr/safecrow-bundle",
+  "description": "SafeCrow API Bundle",
+  "version": "0.0.1",
+  "type": "library",
+  "keywords": [
+    "symfony",
+    "bundle",
+    "api",
+    "SafeCrow"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Roman Vragov",
+      "email": "vragovR@yandex.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "symfony/framework-bundle": "^3.0|^4.0",
+    "vragovr/safecrow-api": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "6.0.*",
+    "php-http/guzzle6-adapter": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "SafeCrowBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SafeCrowBundle\\": "tests/"
+    }
+  }
+}
