@@ -37,7 +37,7 @@ class SafeCrowExtensionTest extends TestCase
     public function testCreateClients()
     {
         $config = [
-            'safecrow' => [
+            'safe_crow' => [
                 'clients' => [
                     'first' => [
                         'key' => 'NPKCXY14MTWAITU6PI6O',
@@ -59,12 +59,12 @@ class SafeCrowExtensionTest extends TestCase
 
         $this->extension->load($config, $this->container);
 
-        $this->assertTrue($this->container->has('safecrow.client.first'));
-        $this->assertTrue($this->container->has('safecrow.client.second'));
-        $this->assertTrue($this->container->has('safecrow.client.three'));
+        $this->assertTrue($this->container->has('safe_crow.client.first'));
+        $this->assertTrue($this->container->has('safe_crow.client.second'));
+        $this->assertTrue($this->container->has('safe_crow.client.three'));
 
-        $this->assertInstanceOf(Client::class, $this->container->get('safecrow.client.first'));
-        $this->assertInstanceOf(Client::class, $this->container->get('safecrow.client.second'));
-        $this->assertInstanceOf(Client::class, $this->container->get('safecrow.client.three'));
+        $this->assertInstanceOf(Client::class, $this->container->get('safe_crow.client.first'));
+        $this->assertInstanceOf(Client::class, $this->container->get('safe_crow.client.second'));
+        $this->assertInstanceOf(Client::class, $this->container->get('safe_crow.client.three'));
     }
 }

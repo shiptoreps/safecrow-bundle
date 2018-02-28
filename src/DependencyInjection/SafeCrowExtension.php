@@ -2,7 +2,6 @@
 
 namespace SafeCrowBundle\DependencyInjection;
 
-use SafeCrow\Client;
 use SafeCrow\Config;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -25,7 +24,7 @@ class SafeCrowExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('safecrow', $config);
+        $container->setParameter('safe_crow', $config);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
@@ -41,11 +40,11 @@ class SafeCrowExtension extends Extension
         foreach ($clients as $name => $client) {
             $config = new Config($client['key'], $client['secret'], $client['dev']);
 
-            $definition = new Definition('%safecrow.client.class%');
+            $definition = new Definition('%safe_crow.client.class%');
             $definition->addMethodCall('authenticate', [$config]);
 
             $container->setDefinition(
-                sprintf('safecrow.client.%s', $name),
+                sprintf('safe_crow.client.%s', $name),
                 $definition
             );
         }
